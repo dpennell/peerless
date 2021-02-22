@@ -1,0 +1,74 @@
+# OSX
+.DS_Store
+
+# bazel
+bazel-*
+
+# SBT Specific
+logs/
+target/
+cachedir/
+out/
+**/native/
+project/scalastyle-config.xml
+.sbtserver*
+assemblies/
+
+# Build Artifacts
+/artifacts
+
+# Ignore databases
+/db/
+db/
+/data
+/edge-tests/data/
+*/*/data/
+
+# Ignore Module Plugin Directories
+modules/*.jar
+pypi/modules
+
+# Hydra Parallel Scala Compiler
+.hydra/
+
+# IntelliJ IDEA Specific
+.idea/aws.xml
+.idea/neo.iml
+.idea/atlassian-ide-plugin.xml
+.idea/checkstyle-idea.xml
+.idea/compiler.xml
+.idea/dataSources
+.idea/dataSources.ids
+.idea/dataSources.xml
+.idea/dataSources.local.xml
+.idea/dbnavigator.xml
+.idea/encodings.xml
+.idea/highlighting.xml
+.idea/inspectionProfiles
+.idea/kotlinc.xml
+.idea/libraries
+.idea/misc.xml
+.idea/modules
+.idea/modules.xml
+.idea/.name
+.idea/play2_project_settings.xml
+.idea/play2_settings.xml
+.idea/profile_settings.xml
+.idea/rebel_project.xml
+.idea/sbt.xml
+.idea/scala_compiler.xml
+.idea/shelf/
+.idea/uiDesigner.xml
+.idea/vcs.xml
+.idea/workspace.xml
+.idea/codeStyles/*
+.idea/$CACHE_FILE$
+
+# Metals & Bloop for VSCode
+.metals
+.bloop
+.history
+.vscode
+
+# UI
+**/node_modules
