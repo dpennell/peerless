@@ -27,8 +27,8 @@ object AppdQuery {
 
   final val authRequest = noCacheRequest.auth.basic(userAndAccount, password)
 
-  sealed trait AppdRequest[+A]             extends ZQRequest[Throwable, A]
-  case object GetAllApplications           extends AppdRequest[List[AppdModel.Application]]
+  sealed trait AppdRequest[+A]           extends ZQRequest[Throwable, A]
+  case object GetAllApplications         extends AppdRequest[List[AppdModel.Application]]
   case class GetApplication(appId: Long) extends AppdRequest[Option[AppdModel.Application]]
 
   lazy val AppdDataSource = new DataSource.Batched[Logging with SttpClient, AppdRequest[Any]] {
@@ -43,7 +43,8 @@ object AppdQuery {
               val result = send(req)
               result.fold(_ => resultMap, rsp => resultMap.insert(r)(rsp.body))
             case r @ GetApplication(appId) =>
-              val req    = authRequest.get(applicationsUri.addPath(appId.toString)).response(asJson[List[AppdModel.Application]])
+              val req =
+                authRequest.get(applicationsUri.addPath(appId.toString)).response(asJson[List[AppdModel.Application]])
               val result = send(req)
               result.fold(_ => resultMap, rsp => resultMap.insert(r)(rsp.body.map(_.headOption))) // api returns a list
           }
