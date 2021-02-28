@@ -10,7 +10,7 @@ lazy val root = (project in file("."))
     organization := "com.streamweaver",
     scalaVersion := "2.13.4",
     scalacOptions := Seq(
-      "-deprecation", "-encoding", "UTF-8", "-feature", "-unchecked", "-Ywarn-unused:params,-implicits",
+      "-deprecation", "-encoding", "UTF-8", "-feature", "-unchecked", //"-Ywarn-unused:params,-implicits",
       "-language:higherKinds", "-language:existentials", "-explaintypes", "-Yrangepos",
       "-Xlint:_,-missing-interpolator,-type-parameter-shadow", "-Ywarn-numeric-widen", "-Ywarn-value-discard",
       "-Xfatal-warnings"
@@ -38,7 +38,7 @@ lazy val root = (project in file("."))
       "dev.zio"                       %% "zio-logging-slf4j"             % "0.5.6",
       "dev.zio"                       %% "zio-query"                     % "0.2.6",
       "com.softwaremill.sttp.client3" %% "async-http-client-backend-zio" % sttpVersion,
-      "com.softwaremill.sttp.client3" %% "json-common"                   % sttpVersion,
+      "com.softwaremill.sttp.client3" %% "json-common"                   % sttpVersion
     ),
-    scalafmtOnCompile := true
+    scalafmtOnCompile := false
   )
